@@ -5,7 +5,7 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        List<String> listC = new ArrayList<>(Arrays.asList("2"));
+       /* List<String> listC = new ArrayList<>(Arrays.asList("2"));
         List<String> listR = new ArrayList<>(Arrays.asList("1"));
         List<String> list1 = new ArrayList<>(Arrays.asList("INSERT", "id1", "id2"));
         List<String> list2 = new ArrayList<>(Arrays.asList("INSERT", "id3", "id4"));
@@ -27,7 +27,9 @@ public class Solution {
 
         //performWarehouseQueriesEdit(list2D);
 
-        balancePackages(3, new ArrayList<>(Arrays.asList(2, 3, 4, 5, 6)));
+        balancePackages(3, new ArrayList<>(Arrays.asList(2, 3, 4, 5, 6)));*/
+
+        processLogs(new ArrayList<>(Arrays.asList("1 2 50", "1 7 70", "1 3 20", "2 2 17")), 2);
 
     }
     public static List<List<String>> performWarehouseQueriesEdit(List<List<String>> query) {
@@ -118,6 +120,49 @@ public class Solution {
         return result;
     }
 
+    static class Transaction {
+        public Transaction(String sender_user_id, String recipient_use_id, String amount_of_transactions, int i) {
+            this.sender_user_id = sender_user_id;
+            this.recipient_use_id = recipient_use_id;
+            this.amount_of_transactions = amount_of_transactions;
+            this.i = i;
+        }
 
+        String sender_user_id;
+        String recipient_use_id;
+        String amount_of_transactions;
+        int i;
+
+    }
+
+    public static List<String> processLogs(List<String> logs, int threshold) {
+        // Write your code here
+
+        List<String> result = new LinkedList<>();
+
+        int i = 0;
+        int j = 0;
+
+        HashMap<String, Integer> totalTransactions = new LinkedHashMap<>();
+        List<Transaction> transactions = new ArrayList<>();
+
+        while(i < logs.size()){
+            String[] log = logs.get(i).split(" ");
+            Transaction transaction = new Transaction(log[0], log[1], log[2], i);
+            transactions.add(transaction);
+            if(transactions.size() > 1){
+                String sender_user_id = transaction.sender_user_id;
+                String recipient_use_id = transaction.recipient_use_id;
+                if(transactions.stream().anyMatch(s -> s.recipient_use_id.equals(sender_user_id))){
+                }
+                if(transactions.stream().anyMatch(r -> r.recipient_use_id.equals(recipient_use_id))){
+
+                }
+            }
+
+        }
+
+        return result;
+    }
 }
 

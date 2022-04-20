@@ -5,12 +5,12 @@ public class SelectionSort {
 
     public SelectionSort(int[] input) {
 
-        for (int lastUnsortedIndex = input.length - 1 ; lastUnsortedIndex > 0 ; lastUnsortedIndex--) {
+        for (int lastUnsortedIndex = input.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
 
             int largest = 0;
 
             for (int i = 1; i <= lastUnsortedIndex; i++) {
-                if (input[i] > input[largest]){
+                if (input[i] > input[largest]) {
                     largest = i;
                 }
             }
@@ -19,9 +19,10 @@ public class SelectionSort {
         }
         System.out.println(Arrays.toString(input));
     }
-    private void swap(int[] array, int i, int j ){
 
-        if(i == j){
+    private void swap(int[] array, int i, int j) {
+
+        if (i == j) {
             return;
         }
 

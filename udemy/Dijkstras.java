@@ -27,7 +27,7 @@ public class Dijkstras {
 
         visitedNodes.add(x);
 
-        for (int[] node: input) {
+        for (int[] node : input) {
 
             for (int y = x + 1; y < node.length; y++) {
 

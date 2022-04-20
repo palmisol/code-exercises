@@ -4,26 +4,28 @@ public class BubbleSort {
     int[] numbers;
     int index;
     int size;
+
     /**
      * @param input
      */
-    public BubbleSort(int[] input){
+    public BubbleSort(int[] input) {
 
-       this.numbers = input;
-       index = 0;
-       size = input.length - 1;
+        this.numbers = input;
+        index = 0;
+        size = input.length - 1;
 
-       sortElements();
-       System.out.println(Arrays.toString(numbers));
+        sortElements();
+        System.out.println(Arrays.toString(numbers));
 
     }
-    private void sortElements(){
 
-        if(index < size){
+    private void sortElements() {
+
+        if (index < size) {
             swapElementsAtIndex();
-            index ++;
+            index++;
             sortElements();
-        } else if ( index == size ) {
+        } else if (index == size) {
             size--;
             index = 0;
             sortElements();
@@ -32,14 +34,14 @@ public class BubbleSort {
         }
 
     }
-    private void swapElementsAtIndex(){
-        if (numbers[index + 1] < numbers[index]){
+
+    private void swapElementsAtIndex() {
+        if (numbers[index + 1] < numbers[index]) {
             int temp = numbers[index];
             numbers[index] = numbers[index + 1];
             numbers[index + 1] = temp;
         }
     }
-
 
 
 }

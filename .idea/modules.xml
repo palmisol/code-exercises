@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Java-W3Schools/Java-W3Schools.iml" filepath="$PROJECT_DIR$/Java-W3Schools/Java-W3Schools.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/code-exercises.iml" filepath="$PROJECT_DIR$/.idea/code-exercises.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dijkstra-algorithm/dijkstra-algorithm.iml" filepath="$PROJECT_DIR$/dijkstra-algorithm/dijkstra-algorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hacker-rank/hacker-rank.iml" filepath="$PROJECT_DIR$/hacker-rank/hacker-rank.iml" />
-      <module fileurl="file://$PROJECT_DIR$/technical-interview/technical-interview.iml" filepath="$PROJECT_DIR$/technical-interview/technical-interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/algorithms/algorithms.iml" filepath="$PROJECT_DIR$/algorithms/algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/code-exercises.iml" filepath="$PROJECT_DIR$/code-exercises.iml" />
     </modules>
   </component>
 </project>

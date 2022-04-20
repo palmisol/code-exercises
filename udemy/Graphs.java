@@ -16,7 +16,8 @@ public class Graphs {
         System.out.println("Finished");
 
     }
-    private static void addEdge(int n, int m){
+
+    private static void addEdge(int n, int m) {
 
         adjacentNodes.putIfAbsent(n, new ArrayList<>());
         adjacentNodes.get(n).add(m);

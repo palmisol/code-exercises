@@ -8,24 +8,27 @@ public class DijstrasAlgorithm {
         Integer distance = Integer.MAX_VALUE; // value of this distance
         Map<Node, Integer> adjNodes = new HashMap<>(); // Adjacent node
 
-        public void addDestination(Node destinationNode, int distance){ // Add adjacent node
+        public void addDestination(Node destinationNode, int distance) { // Add adjacent node
             adjNodes.put(destinationNode, distance);
         }
-        public Node(String name){
+
+        public Node(String name) {
             this.name = name;
         }
 
     }
+
     static class Graph {
 
         Set<Node> nodes = new HashSet<>();
 
-        public void addNode(Node node){
+        public void addNode(Node node) {
             nodes.add(node);
         }
 
     }
-    public static Graph calculateShortestPath(Graph graph, Node start){
+
+    public static Graph calculateShortestPath(Graph graph, Node start) {
 
         start.distance = 0; //Starting node distance 0
 
@@ -34,17 +37,17 @@ public class DijstrasAlgorithm {
 
         unresolvedNodes.add(start);
 
-        while(unresolvedNodes.size() != 0){
+        while (unresolvedNodes.size() != 0) {
 
             Node currentNode = getLowestDistanceNode(unresolvedNodes); //current node to calculate distance
             unresolvedNodes.remove(currentNode);
 
-            for(Map.Entry<Node, Integer> adjPair: currentNode.adjNodes.entrySet()){ // Goes through every pair set
+            for (Map.Entry<Node, Integer> adjPair : currentNode.adjNodes.entrySet()) { // Goes through every pair set
 
                 Node adjNode = adjPair.getKey();
                 Integer edgeWeight = adjPair.getValue();
 
-                if(!visitedNodes.contains(adjNode)){
+                if (!visitedNodes.contains(adjNode)) {
                     calculateMinimumDistance(adjNode, edgeWeight, currentNode);
                     unresolvedNodes.add(adjNode);
                 }
@@ -54,12 +57,13 @@ public class DijstrasAlgorithm {
         return graph;
 
     }
+
     private static void calculateMinimumDistance(Node adjNode, Integer edgeWeight, Node sourceNode) {
 
         Integer sourceDistance = sourceNode.distance;
         int sumDistanceWeight = sourceDistance + edgeWeight;
 
-        if(sumDistanceWeight < adjNode.distance){
+        if (sumDistanceWeight < adjNode.distance) {
             adjNode.distance = sumDistanceWeight;
 
             LinkedList<Node> newShortestPathList = new LinkedList<>(sourceNode.shortestPathList);
@@ -68,16 +72,17 @@ public class DijstrasAlgorithm {
             adjNode.shortestPathList = newShortestPathList;
         }
     }
+
     private static Node getLowestDistanceNode(Set<Node> unresolvedNodes) {
-        
+
         Node lowestDistanceNode = null;
         int lowestDistance = Integer.MAX_VALUE;
-        
-        for(Node node : unresolvedNodes){
-            
+
+        for (Node node : unresolvedNodes) {
+
             int nodeDistance = node.distance;
-            
-            if(nodeDistance < lowestDistance){
+
+            if (nodeDistance < lowestDistance) {
                 lowestDistance = nodeDistance;
                 lowestDistanceNode = node;
             }
@@ -118,7 +123,7 @@ public class DijstrasAlgorithm {
 
         graph = DijstrasAlgorithm.calculateShortestPath(graph, nodeA);
 
-        for ( Node node: graph.nodes) {
+        for (Node node : graph.nodes) {
             System.out.print(node.name);
         }
 

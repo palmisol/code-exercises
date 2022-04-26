@@ -1,3 +1,5 @@
+package dijstrasalgorithms;
+
 public class Edge {
 
     private double weight;
